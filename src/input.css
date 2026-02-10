@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+@theme {
+    --font-oswald: "Oswald", sans-serif;
+}
+
+@utility body-style {
+    @apply font-oswald m-0 overflow-hidden;
+}
+
+@utility date-card {
+    @apply bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10;
+}
+
+@utility hide-settings-content {
+    @apply max-w-0 opacity-0 overflow-hidden pointer-events-none whitespace-nowrap;
+}
+
+/* Active State */
+.settings-content.active {
+    @apply py-2 px-4 pointer-events-auto opacity-100 max-w-[70vw] md:max-w-[40vw] lg:max-w-[25vw] border-white/20 border border-white/20 bg-black/60 backdrop-blur-md rounded-xl;
+}
+
+.settings-icon.active {
+    @apply -rotate-180;
+}
+
+@utility text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.copy-success {
+    background-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.copy-success:hover {
+    background-color: rgba(34, 197, 94, 0.7) !important;
+}

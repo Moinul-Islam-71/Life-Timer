@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Timer - Calculate Your Journey</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9f45c55289.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-black body-style text-white">
+
+    <div class="relative h-screen w-full bg-[url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center bg-no-repeat">
+        
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-shadow">
+            
+            <header class="text-center mb-16">
+                <h1 class="uppercase text-[clamp(2.5rem,8vw,5rem)] font-bold tracking-tighter leading-none">Life Timer</h1>
+                <p class="text-[clamp(1rem,2vw,1.3rem)] tracking-[0.3em] opacity-80 mt-2">CALCULATE YOUR LIFE JOURNEY</p>
+            </header>
+
+            <div class="clock-container text-center grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full max-w-5xl">
+                <!-- Year Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="year" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Years</div>
+                </div>
+
+                <!-- Month Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="month" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Months</div>
+                </div>
+
+                <!-- Day Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="day" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Days</div>
+                </div>
+
+                <!-- Hour Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="hour" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Hours</div>
+                </div>
+
+                <!-- Minute Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="minute" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Minutes</div>
+                </div>
+
+                <!-- Second Card -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                    <div id="second" class="text-[clamp(2.5rem,5vw,4rem)] font-bold">00</div>
+                    <div class="uppercase text-xs tracking-widest opacity-60">Seconds</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons below clock-container -->
+            <div class="flex gap-4 mt-10">
+                <button onclick="copyToClipboard()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 py-2 px-8 rounded-full flex items-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm">
+                    <i class="fa fa-copy"></i> Copy
+                </button>
+                <button onclick="resetTimer()" class="bg-red-500/20 hover:bg-red-500/40 backdrop-blur-md border border-white/20 py-2 px-8 rounded-full flex items-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm">
+                    <i class="fa fa-rotate-left"></i> Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Section with settings-parent -->
+        <div class="settings-parent fixed right-6 bottom-6 flex items-center gap-4 z-20">
+            <!-- Settings Content (Input & Button) -->
+            <div id="settings_panel" class="settings-content hide-settings-content flex items-center gap-3 transition-all duration-500 ease-in-out">
+                <input type="date" id="dob_input" class="bg-white/20 border border-white/20 text-white p-2 rounded-md outline-none text-sm uppercase px-3 focus:border-white/50 transition-all">
+                
+                <button onclick="updateLifeTimer()"
+                        class="bg-white text-black font-bold py-2 px-6 rounded-md hover:bg-gray-200 transition-all text-sm uppercase active:scale-95">
+                    Calculate
+                </button>
+            </div>
+
+            <!-- Settings Trigger Icon -->
+            <div
+                onclick="openSettings()" 
+                id="settings_trigger" 
+                class="settings-icon cursor-pointer transition-all duration-500 ease-in-out text-3xl flex items-center justify-center w-12 h-12 bg-white/10 rounded-full backdrop-blur-md border border-white/10 hover:bg-white/20">
+                <i class="fa fa-cog"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- script.js -->
+     <script src="./src/script.js"></script>
+</body>
+</html>
